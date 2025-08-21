@@ -1,0 +1,229 @@
+/* =======================================
+   01-variables: Paleta de Colores y Tipografía
+   ======================================= */
+:root {
+  /* Colores de la marca y acentos */
+  --brand-primary: #007BFF; /* Azul principal para CTAs (como en S_S2) */
+  --brand-secondary: #0A121A; /* Gris azulado para acentos sutiles */
+  --color-gain: #28A745;    /* Verde para ganancias, convención de la industria (S_S3, S_S4) */
+  --color-loss: #DC3545;    /* Rojo para pérdidas, convención de la industria (S_S3, S_S4) */
+
+  /* Colores neutros para fondos y texto */
+  --bg-dark: #121820;      /* Fondo oscuro para transmitir seriedad (S_S3, S_S4) */
+  --bg-card: #1C232E;      /* Fondo de las tarjetas, ligeramente más claro que el fondo principal */
+  --text-light: #f0f2f5;   /* Texto principal claro */
+  --text-secondary: #adb5bd;/* Texto secundario y etiquetas */
+  --border-light: #2c3440; /* Bordes y separadores sutiles */
+
+  /* Tipografía */
+  --font-family-body: 'Lato', sans-serif;
+  --font-family-heading: 'Montserrat', sans-serif;
+  --font-family-mono: 'Roboto Mono', monospace; /* Fuente monoespaciada para datos numéricos */
+
+  /* Espaciado */
+  --spacing-unit: 1rem;
+}
+
+/* =======================================
+   02-base: Estilos para Elementos HTML básicos
+   ======================================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-body);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--brand-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+/* =======================================
+   03-components: Estilos para componentes reutilizables
+   ======================================= */
+
+/* Estilos para el botón de llamada a la acción */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.button-primary {
+  background-color: var(--brand-primary);
+  color: var(--text-light);
+}
+
+.button-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Estilos para formularios (basado en S_S2) */
+.form-group {
+  margin-bottom: var(--spacing-unit);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: var(--bg-card);
+  color: var(--text-light);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--brand-primary);
+}
+
+/* Estilos para tarjetas de datos (inspirado en S_S3, S_S4) */
+.card-data {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.card-data:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-metric {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-light);
+  font-family: var(--font-family-mono);
+}
+
+/* Estilos para las tablas de datos (como una lista de activos) */
+.table-data {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-family: var(--font-family-mono);
+}
+
+.table-data th,
+.table-data td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.table-data th {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.table-data tbody tr:hover {
+  background-color: var(--bg-card);
+}
+
+/* Estilos específicos para celdas de ganancias/pérdidas */
+.cell-gain {
+  color: var(--color-gain);
+  font-weight: 600;
+}
+
+.cell-loss {
+  color: var(--color-loss);
+  font-weight: 600;
+}
+
+/* =======================================
+   04-layout: Estructura de la página
+   ======================================= */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.main-header {
+  background-color: var(--bg-dark);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo a {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  color: var(--text-light);
+  font-weight: 700;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--brand-primary);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
